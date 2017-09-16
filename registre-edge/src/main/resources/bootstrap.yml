@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: registre-edge
+  cloud:
+    config:
+      uri: http://localhost:8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8050
+zuul:
+  routes:
+    registre-caisse: /caisses/**
+#   ignored-services: [*]
+
+
