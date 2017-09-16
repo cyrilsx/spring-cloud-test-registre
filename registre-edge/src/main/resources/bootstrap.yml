@@ -9,7 +9,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 server:
-  port: 8050
+  port: 8060
 zuul:
   routes:
     registre-caisse: /caisses/**

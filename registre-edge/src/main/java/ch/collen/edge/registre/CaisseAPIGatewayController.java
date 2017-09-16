@@ -1,4 +1,4 @@
-package ch.collen.caissemanager;
+package ch.collen.edge.registre;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -17,16 +17,18 @@ import java.util.stream.Collectors;
  * Created by cyril on 14/09/17.
  */
 @RestController
+@RequestMapping("caisses-api")
 public class CaisseAPIGatewayController {
 
+    //FIXME
     //@Autowired
     //@LoadBalanced
-    private RestTemplate restTemplate;
+    //private RestTemplate restTemplate;
 
-    @RequestMapping(path = "name")
+    @RequestMapping("names")
     public Collection<String> getCaisseNames() {
         ParameterizedTypeReference<Resources<CaisseNameWithID>> ptr = new ParameterizedTypeReference<Resources<CaisseNameWithID>>() {};
-        ResponseEntity<Resources<CaisseNameWithID>> responseEntity = restTemplate.exchange("http://registre-caisse/caisse", HttpMethod.GET, null, ptr);
+        ResponseEntity<Resources<CaisseNameWithID>> responseEntity = new RestTemplate().exchange("http://registre-caisse/caisse", HttpMethod.GET, null, ptr);
         return responseEntity
                 .getBody()
                 .getContent()

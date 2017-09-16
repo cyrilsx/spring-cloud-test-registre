@@ -1,2 +1,6 @@
-spring.application.name=registre-caisse
-spring.cloud.config.uri=http://localhost:8888
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+  application:
+    name: registre-caisse
